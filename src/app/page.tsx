@@ -5,8 +5,8 @@ import GlobalPresenceSection from '@/components/GlobalPresenceSection'
 import InnovationCultureSection from '@/components/InnovationCultureSection'
 import LeadershipSection from '@/components/LeadershipSection'
 import LeadershipGuidanceSection from '@/components/LeadershipGuidanceSection'
-import ContactSection from '@/components/ContactSection'
-import Footer from '@/components/Footer'
+import { ContactSection } from '@/components/ContactSection'
+import { Footer } from '@/components/Footer'
 
 export default function Home() {
   return (

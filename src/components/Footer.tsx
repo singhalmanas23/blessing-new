@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="relative w-[1439px] h-[967px] bg-[#131416] overflow-hidden mx-auto">
       {/* Background Elements */}

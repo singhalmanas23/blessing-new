@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 
-export default function ContactSection() {
+export function ContactSection() {
   const [selectedServices, setSelectedServices] = useState<string[]>([])
 
   const services = [
