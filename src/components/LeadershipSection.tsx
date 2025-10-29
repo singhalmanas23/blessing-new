@@ -1,70 +1,131 @@
 'use client'
 
 import Image from 'next/image'
+import { ResponsiveContainer } from './ResponsiveContainer'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export default function LeadershipSection() {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.3 })
+
   return (
-    <section className="relative w-full h-[919px] overflow-hidden bg-[#0c0c11]">
-      {/* Background Image */}
-      <div className="absolute left-[451px] top-[101px] w-[566px] h-[755px]">
+    <section 
+      ref={sectionRef}
+      className="relative w-full min-h-screen bg-[#0c0c11] overflow-hidden py-clamp-16-32"
+    >
+      {/* Full Section Background Image */}
+      <div className="absolute inset-0">
         <Image
           src="/images/leadership-section-bg.png"
           alt="Leadership Background"
           fill
-          className="object-cover"
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={85}
+          priority={false}
         />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Gradient overlay for additional depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c11]/80 via-transparent to-[#0c0c11]/80"></div>
       </div>
 
-      {/* Blur Rectangle */}
-      <div className="absolute left-[422px] top-[181px] w-[57px] h-[542px] bg-[#131416] blur-[54px]"></div>
+      {/* Content Container with max-width */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto">
+        <ResponsiveContainer spacing="lg" maxWidth="full">
+          {/* Main Description */}
+          <div className={`text-center mb-clamp-12-20 transition-all duration-700 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}>
+            <p className="text-white font-neue text-clamp-xl-3xl font-medium leading-tight max-w-5xl mx-auto">
+              Our innovation culture also extends to how we work internally. We&apos;ve embraced modern ways of working:
+            </p>
+          </div>
 
-      {/* Main Description Text */}
-      <div className="absolute left-[191px] top-[156px] w-[1059px] h-[112px]">
-        <p className="text-white font-['Neue_Haas_Grotesk_Display_Pro'] text-[40px] font-medium leading-[56px] text-center">
-          Our innovation culture also extends to how we work internally. We&apos;ve embraced modern ways of working:
-        </p>
-      </div>
+          {/* Tag Badges */}
+          <div 
+            ref={contentRef as React.RefObject<HTMLDivElement>}
+            className={`flex flex-wrap justify-center items-center gap-4 lg:gap-6 mb-clamp-16-24 transition-all duration-700 delay-300 ${
+              contentVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}
+          >
+            <div className="bg-white rounded-full px-6 py-2 lg:px-8 lg:py-3 hover:scale-105 transition-transform duration-300">
+              <span className="text-black font-neue text-clamp-lg-2xl font-medium">
+                agile
+              </span>
+            </div>
+            
+            <div className="bg-white rounded-full px-6 py-2 lg:px-8 lg:py-3 hover:scale-105 transition-transform duration-300">
+              <span className="text-black font-neue text-clamp-lg-2xl font-medium">
+                remote collaboration
+              </span>
+            </div>
+            
+            <div className="bg-white rounded-full px-6 py-2 lg:px-8 lg:py-3 hover:scale-105 transition-transform duration-300">
+              <span className="text-black font-neue text-clamp-lg-2xl font-medium">
+                continuous learning
+              </span>
+            </div>
+          </div>
 
-      {/* Tag Badges */}
-      <div className="absolute left-[447px] top-[367px] w-[545.12px] h-[177.43px]">
-        {/* Agile Badge */}
-        <div className="absolute left-0 top-0 bg-white rounded-[78.69px] px-[19.32px] py-[3.22px] flex items-center justify-center">
-          <span className="text-black font-['Neue_Haas_Grotesk_Display_Pro'] text-[41.87px] font-medium leading-[57.99px]">
-            agile
-          </span>
-        </div>
+          {/* Content Cards */}
+          <div className={`grid lg:grid-cols-2 gap-clamp-8-16 max-w-6xl mx-auto transition-all duration-700 delay-500 ${
+            contentVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+          }`}>
+            {/* Left Content Card */}
+            <div className="group">
+              <div className="bg-black/20 backdrop-blur-xl border-t border-white/30 rounded-xl p-clamp-6-10 hover:bg-black/30 hover:border-white/40 transition-all duration-300">
+                <p className="text-white/85 font-neue text-clamp-base-lg font-medium leading-relaxed text-center">
+                  We are proud to have a diverse workforce that brings a variety of perspectives, which we believe is core to innovative thinking. Our employees are our greatest asset: we hire passionate, curious, and skilled professionals and give them an environment to thrive.
+                </p>
+                {/* Decorative line */}
+                <div className="w-full h-0.5 bg-linear-to-r from-transparent via-[#E79A01] to-transparent mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            </div>
 
-        {/* Remote Collaboration Badge */}
-        <div className="absolute left-[139.96px] top-0 bg-white rounded-[78.69px] px-[19.32px] py-[3.22px] flex items-center justify-center">
-          <span className="text-black font-['Neue_Haas_Grotesk_Display_Pro'] text-[41.87px] font-medium leading-[57.99px]">
-            remote collaboration
-          </span>
-        </div>
+            {/* Right Content Card */}
+            <div className="group">
+              <div className="bg-black/20 backdrop-blur-xl border-t border-white/30 rounded-xl p-clamp-6-10 hover:bg-black/30 hover:border-white/40 transition-all duration-300">
+                <p className="text-white/85 font-neue text-clamp-base-lg font-medium leading-relaxed text-center">
+                  This has been recognized in our industry &ndash; we&apos;ve been named a &ldquo;Top Employer&rdquo; in several of our locations. Happy, motivated teams create the best solutions, and our clients feel that positive energy in projects.
+                </p>
+                {/* Decorative line */}
+                <div className="w-full h-0.5 bg-linear-to-r from-transparent via-[#E79A01] to-transparent mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            </div>
+          </div>
 
-        {/* Continuous Learning Badge */}
-        <div className="absolute left-[59.98px] top-[93.05px] bg-white rounded-[78.69px] px-[19.32px] py-[3.22px] flex items-center justify-center">
-          <span className="text-black font-['Neue_Haas_Grotesk_Display_Pro'] text-[41.87px] font-medium leading-[57.99px]">
-            continuous learning
-          </span>
-        </div>
-      </div>
-
-      {/* Left Content Card */}
-      <div className="absolute left-[253px] top-[643px] w-[412px] h-[140px] border-t border-white rounded-[10px]">
-        <div className="absolute left-0 top-[10px] w-[412px] h-[130px]">
-          <p className="text-white/80 font-['Neue_Haas_Grotesk_Display_Pro'] text-base font-medium leading-[26px] text-center">
-            We are proud to have a diverse workforce that brings a variety of perspectives, which we believe is core to innovative thinking. Our employees are our greatest asset: we hire passionate, curious, and skilled professionals and give them an environment to thrive.
-          </p>
-        </div>
-      </div>
-
-      {/* Right Content Card */}
-      <div className="absolute left-[735px] top-[643px] w-[412px] h-[140px] border-t border-white rounded-[10px]">
-        <div className="absolute left-0 top-[10px] w-[412px] h-[104px]">
-          <p className="text-white/80 font-['Neue_Haas_Grotesk_Display_Pro'] text-base font-medium leading-[26px] text-center">
-            This has been recognized in our industry &ndash; we&apos;ve been named a &ldquo;Top Employer&rdquo; in several of our locations. Happy, motivated teams create the best solutions, and our clients feel that positive energy in projects.
-          </p>
-        </div>
+          {/* Bottom scroll indicator */}
+          <div className={`flex justify-center mt-clamp-16-24 transition-all duration-700 delay-700 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}>
+            <button 
+              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border border-white/30 flex items-center justify-center hover:border-white/50 hover:bg-white/5 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-white/20"
+              aria-label="Scroll to next section"
+              onClick={() => {
+                const nextSection = document.querySelector('section:has(+ section)')?.nextElementSibling
+                if (nextSection) {
+                  nextSection.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
+            >
+              <svg 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 group-hover:translate-y-0.5 transition-transform duration-300"
+              >
+                <path 
+                  d="M12 4V20M12 20L6 14M12 20L18 14" 
+                  stroke="white" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </ResponsiveContainer>
       </div>
     </section>
   )
