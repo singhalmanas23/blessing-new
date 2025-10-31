@@ -1,160 +1,89 @@
 'use client'
 
 import Image from 'next/image'
+import { ArrowRight, CheckCircle2, TrendingUp, Compass } from 'lucide-react'
 
 export default function CareerClientsSection() {
   return (
-    <section className="relative w-full h-[923px] bg-[#131416] overflow-hidden">
-      {/* Background Border Rectangle */}
-      <div className="absolute left-[755px] top-0 w-[685px] h-[1001px] bg-[#131416] border-l-[0.5px] border-white/20"></div>
-
-      {/* Content Area */}
-      <div className="absolute left-[755px] top-0 w-[685px] h-[923px] border-l-[0.5px] border-white/20">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/career-clients-bg-7169f2.png"
-            alt="Clients Background"
-            fill
-            className="object-stretch"
-            priority
-          />
-        </div>
-
-        {/* Feature Cards Container */}
-        <div className="absolute inset-0 flex flex-col z-10">
-          {/* Card 1 */}
-          <div className="flex items-center justify-between gap-[10px] px-[40px] py-[37px] border-b-[0.5px] border-white/20 bg-[#131416] flex-1">
-            <div className="w-[477px]">
-              <p className="text-white font-['Neue_Haas_Grotesk_Display_Pro'] text-[24px] font-medium leading-[1.6667em]">
-                Global IT spending projected to grow ~9% in 2025, now&apos;s the time to act
-              </p>
-            </div>
-            <div className="w-[48px] h-[48px] flex items-center justify-center">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <defs>
-                  <linearGradient id="gradientClients1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="60%" stopColor="rgba(255, 255, 255, 1)" />
-                    <stop offset="78%" stopColor="rgba(231, 154, 1, 1)" />
-                    <stop offset="94%" stopColor="rgba(231, 108, 1, 1)" />
-                  </linearGradient>
-                </defs>
-                <path d="M6 34L42 34M42 34L30 22M42 34L30 46" stroke="url(#gradientClients1)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M6 10L6 22" stroke="url(#gradientClients1)" strokeWidth="4" strokeLinecap="round"/>
-              </svg>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="flex items-center justify-between gap-[10px] px-[40px] py-[37px] border-b-[0.5px] border-white/20 bg-[#131416] flex-1">
-            <div className="w-[477px]">
-              <p className="text-white font-['Neue_Haas_Grotesk_Display_Pro'] text-[24px] font-medium leading-[1.6667em]">
-                We start engagements with a discovery session to align on goals.
-              </p>
-            </div>
-            <div className="w-[48px] h-[48px] flex items-center justify-center">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <defs>
-                  <linearGradient id="gradientClients2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="28%" stopColor="rgba(255, 255, 255, 1)" />
-                    <stop offset="64%" stopColor="rgba(231, 154, 1, 1)" />
-                    <stop offset="94%" stopColor="rgba(231, 108, 1, 1)" />
-                  </linearGradient>
-                </defs>
-                <circle cx="24" cy="24" r="20" stroke="url(#gradientClients2)" strokeWidth="4"/>
-                <circle cx="24" cy="24" r="8" fill="url(#gradientClients2)"/>
-              </svg>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="flex items-center justify-between gap-[10px] px-[40px] py-[37px] border-b-[0.5px] border-white/20 bg-[#131416] flex-1">
-            <div className="w-[477px]">
-              <p className="text-white font-['Neue_Haas_Grotesk_Display_Pro'] text-[24px] font-medium leading-[1.6667em]">
-                Our commitment: passion, expertise, and proven outcomes.
-              </p>
-            </div>
-            <div className="w-[48px] h-[48px] flex items-center justify-center">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <defs>
-                  <linearGradient id="gradientClients3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="26%" stopColor="rgba(255, 255, 255, 1)" />
-                    <stop offset="60%" stopColor="rgba(231, 154, 1, 1)" />
-                    <stop offset="94%" stopColor="rgba(231, 108, 1, 1)" />
-                  </linearGradient>
-                </defs>
-                <path d="M12 24L20 32L36 16" stroke="url(#gradientClients3)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="flex items-center justify-between gap-[10px] px-[40px] py-[37px] bg-[#131416] flex-1">
-            <div className="w-[394px]">
-              <p className="text-white font-['Neue_Haas_Grotesk_Display_Pro'] text-[24px] font-medium leading-[1.6667em]">
-                Initial strategic insights, tailored for you, with no obligations attached.
-              </p>
-            </div>
-            <div className="w-[48px] h-[48px] flex items-center justify-center">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <defs>
-                  <linearGradient id="gradientClients4" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="16%" stopColor="rgba(255, 255, 255, 1)" />
-                    <stop offset="57%" stopColor="rgba(231, 154, 1, 1)" />
-                    <stop offset="94%" stopColor="rgba(231, 108, 1, 1)" />
-                  </linearGradient>
-                </defs>
-                <path d="M8 16L24 32L40 16" stroke="url(#gradientClients4)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M24 8V32" stroke="url(#gradientClients4)" strokeWidth="4" strokeLinecap="round"/>
-              </svg>
-            </div>
-          </div>
-        </div>
+    <section className="relative bg-[#131416] text-white overflow-hidden">
+      {/* Background image (right side only on desktop) */}
+      <div className="absolute inset-0 opacity-20">
+        <Image
+          src="/images/career-clients-bg-7169f2.png"
+          alt="Clients Background"
+          fill
+          className="object-cover mix-blend-overlay"
+        />
       </div>
 
-      {/* Left Content */}
-      <div className="absolute left-0 top-0 w-[755px] h-[923px]">
-        {/* Title */}
-        <div className="absolute left-[96px] top-[137px] w-[350px] h-[29px]">
-          <h2 className="text-transparent bg-clip-text font-['Neue_Haas_Grotesk_Display_Pro'] text-[24px] font-normal leading-[1.2em] uppercase"
-              style={{
-                backgroundImage: "linear-gradient(111deg, rgba(255, 255, 255, 1) 41%, rgba(231, 154, 1, 1) 73%, rgba(231, 108, 1, 1) 94%)"
-              }}>
-            Clients/Prospective Clients
+      {/* Grid container */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* Left Content */}
+        <div className="flex flex-col justify-center space-y-8">
+          <h2
+            className="text-[22px] font-medium uppercase tracking-wide bg-gradient-to-r from-white via-[#E79A01] to-[#E76C01] bg-clip-text text-transparent"
+          >
+            Clients / Prospective Clients
           </h2>
-        </div>
 
-        {/* Description */}
-        <div className="absolute left-[96px] top-[202px] w-[566px] h-[440px]">
-          <p className="text-transparent bg-clip-text font-['Neue_Haas_Grotesk_Display_Pro'] text-[28px] font-medium leading-[1.4286em]"
-             style={{
-               backgroundImage: "linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(153, 153, 153, 1) 100%)"
-             }}>
-            Looking for a true technology partner—not just a vendor? Welcome to Blessing SoftTech. We invest deeply in your success and bring bold ideas to every engagement, whether you need a focused solution or a full digital transformation. The tech landscape is booming, and those who leverage the right technology will surge ahead. Join us for a free, no-strings-attached consultation or discovery workshop and see how we can unlock high-impact opportunities for your business.
+          <p className="text-[20px] md:text-[22px] leading-relaxed text-gray-300">
+            Looking for a <span className="text-white font-semibold">true technology partner</span> —
+            not just a vendor? Welcome to <span className="text-white font-semibold">Blessing SoftTech</span>.
+            We invest deeply in your success and bring bold ideas to every engagement,
+            whether you need a focused solution or a full digital transformation.
           </p>
-        </div>
 
-        {/* CTA Button */}
-        <div className="absolute left-[96px] top-[685px]">
-          <button className="flex items-center justify-center gap-[10px] px-[20px] py-[16px] bg-white">
-            <span className="text-black font-['Neue_Haas_Grotesk_Display_Pro'] text-[20px] font-semibold leading-[1.2em]">
+          <p className="text-[20px] md:text-[22px] leading-relaxed text-gray-300">
+            Join us for a free, no-strings-attached consultation or discovery workshop
+            and see how we can unlock high-impact opportunities for your business.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center gap-5">
+            <button
+              className="flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-white to-[#E79A01] text-black font-semibold text-lg rounded-xl shadow-md hover:opacity-90 transition"
+            >
               Start Your Journey
-            </span>
-            <svg width="17.42" height="11.31" viewBox="0 0 18 12" fill="none">
-              <path d="M1 6H17M17 6L12 1M17 6L12 11" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+              <ArrowRight size={20} />
+            </button>
+            <div className="flex items-center gap-2 opacity-80">
+              <Compass size={18} />
+              <span className="text-sm md:text-base">Free consultation or workshop</span>
+            </div>
+          </div>
         </div>
 
-        {/* Info Message */}
-        <div className="absolute left-[96px] top-[757px] flex items-center gap-[8px] opacity-70">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <circle cx="10" cy="10" r="9" stroke="white" strokeWidth="1.5"/>
-            <path d="M10 7V13M10 4V5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-          </svg>
-          <span className="text-white font-['Neue_Haas_Grotesk_Display_Pro'] text-[16px] font-medium leading-[1.2em]">
-            Contact us for a free consultation or workshop
-          </span>
+        {/* Right Feature Cards */}
+        <div className="flex flex-col justify-center space-y-6">
+          {[
+            {
+              icon: <TrendingUp className="text-white" size={28} />,
+              title: 'Global IT spending projected to grow ~9% in 2025 — now’s the time to act.',
+            },
+            {
+              icon: <Compass className="text-white" size={28} />,
+              title: 'We start engagements with a discovery session to align on goals.',
+            },
+            {
+              icon: <CheckCircle2 className="text-white" size={28} />,
+              title: 'Our commitment: passion, expertise, and proven outcomes.',
+            },
+            {
+              icon: <ArrowRight className="text-white" size={28} />,
+              title: 'Initial strategic insights, tailored for you, with no obligations attached.',
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-5 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition"
+            >
+              <div className="p-3 rounded-xl bg-gradient-to-br from-white/20 via-[#E79A01]/60 to-[#E76C01]/70 shadow-lg">
+                {item.icon}
+              </div>
+              <p className="text-[18px] md:text-[20px] leading-snug font-medium">
+                {item.title}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
