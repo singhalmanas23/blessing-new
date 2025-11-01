@@ -1,7 +1,7 @@
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 
-import { UIHeroSection } from "@/components/UIHeroSection";
+import UIHeroSection from "@/components/UIHeroSection";
 import { UIDescriptionSection } from "@/components/UIDescriptionSection";
 import { UIApproachSection } from "@/components/UIApproachSection";
 import { UIPrototypeSection } from "@/components/UIPrototypeSection";

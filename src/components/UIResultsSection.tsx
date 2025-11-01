@@ -1,172 +1,121 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export const UIResultsSection: React.FC = () => {
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, delay },
+    viewport: { once: true },
+  });
+
+  const cards = [
+    {
+      title: 'Conversion That Scales Revenue',
+      text: "An e-commerce client achieved an 83% increase in conversions and a major revenue lift after Blessing SoftTech's UX redesign improved flow and clarity.",
+      gradient: 'from-[#2C1206]/40 via-[#6D341B]/40 to-[#A6481E]/60',
+      delay: 0.1,
+    },
+    {
+      title: 'Efficiency That Reduces Support Load',
+      text: 'A redesigned enterprise interface led to fewer support calls, as users could now self-navigate effortlessly — saving time and operational costs.',
+      gradient: 'from-[#1E0C05]/40 via-[#994723]/50 to-[#B85A2C]/70',
+      delay: 0.25,
+    },
+    {
+      title: 'Design That Builds Trust',
+      text: "With 75% of credibility judgments based on aesthetics and usability, our polished interfaces strengthen your brand's image and user confidence.",
+      gradient: 'from-[#3B1A0E]/40 via-[#6D341B]/50 to-[#A6481E]/60',
+      delay: 0.4,
+    },
+  ];
+
   return (
-    <section className="w-full h-[2312px] relative bg-[#131416] overflow-hidden">
-      {/* Ellipse 15 - Background Blur Effect */}
-      <div 
-        className="absolute rounded-full"
-        style={{
-          left: '-55px',
-          top: '415px',
-          width: '1550px',
-          height: '1550px',
-          background: '#A6481E',
-          filter: 'blur(824px)'
-        }}
-      />
+    <section className="relative w-full overflow-hidden bg-[#131416] py-24 lg:py-40">
+      {/* Background Glow */}
+      <div className="absolute -left-20 top-[400px] w-[1200px] h-[1200px] bg-[#A6481E] blur-[600px] opacity-40 pointer-events-none" />
 
-      {/* Main Headline */}
-      <h2 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[48px] leading-[1.2000000476837158em] text-center text-[#ECD4B3]"
-        style={{ left: '227px', top: '173px', width: '987px', height: '116px' }}
+      {/* Headline */}
+      <motion.h2
+        {...fadeUp(0)}
+        className="relative z-10 mx-auto max-w-5xl text-center font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[32px] sm:text-[40px] lg:text-[52px] leading-tight text-[#ECD4B3] px-6"
       >
-        The Blessing of Experience
+        The Blessing of Experience — <br className="hidden sm:block" />
         Design That Delights Users and Drives Results
-      </h2>
+      </motion.h2>
 
-      {/* Vector 14 - Decorative Lines */}
-      <svg 
-        className="absolute"
-        style={{ left: '292.5px', top: '479.4px', width: '782.9px', height: '329.6px' }}
-        viewBox="0 0 783 330"
-        fill="none"
-      >
-        <path stroke="#EEAB8E" strokeWidth="2" d="M0 165L783 165" />
-        <path stroke="#EEAB8E" strokeWidth="2" d="M391.5 0L391.5 330" />
-      </svg>
+      {/* Divider + Cards */}
+      <div className="relative mt-24 flex flex-col items-center justify-center">
+        {/* Divider */}
+        <motion.svg
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mx-auto w-[80%] max-w-[700px] text-[#EEAB8E]"
+          viewBox="0 0 783 330"
+          fill="none"
+        >
+          <path stroke="#EEAB8E" strokeWidth="2" d="M0 165L783 165" />
+          <path stroke="#EEAB8E" strokeWidth="2" d="M391.5 0L391.5 330" />
+        </motion.svg>
 
-      {/* Background Image */}
-      <div className="absolute" style={{ left: '-8px', top: '275px', width: '1511px', height: '1007px' }}>
-        <Image
-          src="/images/ui-results-bg.png"
-          alt="Results Background"
-          width={1511}
-          height={1007}
-          className="object-cover"
-        />
+        {/* Cards */}
+        <div className="relative mt-[-200px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-6xl z-10">
+          {cards.map((card, idx) => (
+            <motion.div
+              key={idx}
+              {...fadeUp(card.delay)}
+              className={`relative group overflow-hidden rounded-2xl border border-white/10 p-8 backdrop-blur-md bg-gradient-to-b ${card.gradient} hover:scale-[1.02] transition-transform duration-500 shadow-[0_0_60px_rgba(0,0,0,0.2)]`}
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-br from-white/40 to-transparent transition-opacity duration-500" />
+              <h3 className="relative font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[22px] sm:text-[24px] text-white mb-4">
+                {card.title}
+              </h3>
+              <p className="relative font-['Neue_Haas_Grotesk_Display_Pro'] text-white/80 text-[16px] sm:text-[18px] leading-relaxed">
+                {card.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
-      {/* Vector 15 - Small decorative element */}
-      <svg
-        className="absolute"
-        style={{ left: '739px', top: '761.5px', width: '156.62px', height: '47.5px' }}
-        viewBox="0 0 157 48"
-        fill="none"
-      >
-        <path stroke="#EEAB8E" strokeWidth="2" d="M0 24L157 24" />
-      </svg>
+      {/* Enhanced Hero Background */}
+      <div className="relative mt-[-80px] w-full flex justify-center">
+        <motion.div
+          {...fadeUp(0.4)}
+          className="relative w-[92%] max-w-[1400px] aspect-[1511/1007] rounded-[24px] overflow-hidden"
+        >
+          {/* Image */}
+          <Image
+            src="/images/ui-results-bg.png"
+            alt="Results Background"
+            fill
+            className="object-cover"
+          />
 
-      {/* Union 1 - Card 1 (Conversion That Scales Revenue) */}
-      <div 
-        className="absolute backdrop-blur-[24px] rounded border"
-        style={{
-          left: '159px',
-          top: '457px',
-          width: '267px',
-          height: '303px',
-          background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.12) 8%, rgba(0, 0, 0, 0.12) 85%, rgba(109, 52, 27, 1) 88%, rgba(153, 71, 35, 1) 100%)',
-          borderImage: 'linear-gradient(180deg, rgba(252, 252, 252, 0.12) 0%, rgba(252, 252, 252, 0.32) 82%) 1'
-        }}
-      >
-        <h3 
-          className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[24px] leading-[1.2000000476837158em] text-white"
-          style={{ left: '20px', top: '20px', width: '227px', height: '58px' }}
-        >
-          Conversion That Scales Revenue
-        </h3>
-        <p 
-          className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[18px] leading-[1.2000000211927626em] text-white opacity-80"
-          style={{ left: '20px', top: '86px', width: '217px', height: '132px' }}
-        >
-          An e-commerce client achieved an 83% increase in conversions and a major revenue lift after Blessing SoftTech&apos;s UX redesign improved flow and clarity.
-        </p>
+          {/* Gradient overlay to connect with cards */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#131416] via-[#131416]/60 to-transparent" />
+
+          {/* Floating glow elements */}
+          <div className="absolute top-10 left-1/3 w-[300px] h-[300px] bg-[#A6481E]/30 blur-[150px] rounded-full animate-pulse" />
+          <div className="absolute bottom-10 right-1/4 w-[250px] h-[250px] bg-[#EEAB8E]/20 blur-[120px] rounded-full animate-pulse" />
+        </motion.div>
       </div>
-
-      {/* Union 2 - Card 2 (Efficiency That Reduces Support Load) */}
-      <div 
-        className="absolute backdrop-blur-[24px] rounded border"
-        style={{
-          left: '1031px',
-          top: '361px',
-          width: '313px',
-          height: '263px',
-          background: 'linear-gradient(270deg, rgba(0, 0, 0, 0.12) 25%, rgba(0, 0, 0, 0.12) 85%, rgba(109, 52, 27, 1) 87%, rgba(153, 71, 35, 1) 100%)',
-          borderImage: 'linear-gradient(180deg, rgba(252, 252, 252, 0.12) 0%, rgba(252, 252, 252, 0.32) 77%) 1'
-        }}
-      >
-        <h3 
-          className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[24px] leading-[1.2000000476837158em] text-white"
-          style={{ left: '65px', top: '27px', width: '227px', height: '87px' }}
-        >
-          Efficiency That Reduces Support Load
-        </h3>
-        <p 
-          className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[18px] leading-[1.2000000211927626em] text-white opacity-80"
-          style={{ left: '65px', top: '127px', width: '227px', height: '110px' }}
-        >
-          A redesigned enterprise interface led to fewer support calls, as users could now self-navigate effortlessly — saving time and operational costs.
-        </p>
-      </div>
-
-      {/* Union 3 - Card 3 (Design That Builds Trust) */}
-      <div 
-        className="absolute backdrop-blur-[24px] rounded border"
-        style={{
-          left: '726px',
-          top: '660px',
-          width: '313px',
-          height: '245px',
-          background: 'linear-gradient(270deg, rgba(0, 0, 0, 0.24) 25%, rgba(0, 0, 0, 0.24) 85%, rgba(109, 52, 27, 1) 87%, rgba(153, 71, 35, 1) 100%)',
-          borderImage: 'linear-gradient(180deg, rgba(252, 252, 252, 0.12) 0%, rgba(252, 252, 252, 0.32) 83%) 1'
-        }}
-      >
-        <h3 
-          className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[24px] leading-[1.2000000476837158em] text-white"
-          style={{ left: '67px', top: '25px', width: '227px', height: '58px' }}
-        >
-          Design That Builds Trust
-        </h3>
-        <p 
-          className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[18px] leading-[1.2000000211927626em] text-white opacity-80"
-          style={{ left: '67px', top: '90px', width: '227px', height: '132px' }}
-        >
-          With 75% of credibility judgments based on aesthetics and usability, our polished interfaces strengthen your brand&apos;s image and user confidence.
-        </p>
-      </div>
-
-      {/* Bottom Background Image */}
-      <div className="absolute" style={{ left: '-54px', top: '1280px', width: '1548px', height: '1032px' }}>
-        <Image
-          src="/images/ui-results-bottom.png"
-          alt="Results Bottom Background"
-          width={1548}
-          height={1032}
-          className="object-cover"
-        />
-      </div>
-
-      {/* Rectangle 50 - Bottom Blur Effect */}
-      <div 
-        className="absolute"
-        style={{
-          left: '-761px',
-          top: '1014px',
-          width: '2962px',
-          height: '436px',
-          background: '#4F2615',
-          filter: 'blur(214px)'
-        }}
-      />
 
       {/* Bottom Headline */}
-      <h3 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[48px] leading-[1.2000000476837158em] text-center text-white"
-        style={{ left: '157px', top: '1731px', width: '1126px', height: '58px' }}
+      <motion.h3
+        {...fadeUp(0.3)}
+        className="relative z-10 mt-24 text-center font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[28px] sm:text-[36px] lg:text-[48px] text-white leading-snug px-6"
       >
         Designing for Consistency, Inclusivity & Global Reach
-      </h3>
+      </motion.h3>
+
+      {/* Bottom Blur */}
+      <div className="absolute inset-x-0 bottom-0 h-[400px] bg-gradient-to-t from-[#4F2615] via-[#131416] to-transparent blur-[200px] opacity-50 pointer-events-none" />
     </section>
   );
 };

@@ -1,125 +1,114 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export const UIPrototypeSection: React.FC = () => {
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, delay },
+    viewport: { once: true },
+  });
+
+  const steps = [
+    {
+      num: '01.',
+      title: 'Prototype Before You Build',
+      text: 'We craft interactive prototypes using Figma, Adobe XD, or InVision, allowing teams to experience and refine ideas before development.',
+    },
+    {
+      num: '02.',
+      title: 'Test With Real Users',
+      text: 'Usability tests reveal how people actually navigate your product — we watch, learn, and identify friction points that block engagement.',
+    },
+    {
+      num: '03.',
+      title: 'Iterate With Data',
+      text: 'Each round of testing drives evidence-based refinements, ensuring every screen feels intuitive and every flow performs better.',
+    },
+    {
+      num: '04.',
+      title: 'Optimize for Conversion',
+      text: 'We experiment with layouts, CTAs, and micro-interactions — applying proven principles like Hick’s and Fitts’s laws to drive measurable conversion gains.',
+    },
+  ];
+
   return (
-    <section className="w-full h-[1024px] relative bg-black overflow-hidden">
-      {/* Main Headline */}
-      <h2 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[72px] leading-[1.0555555555555556em] text-[#EAE3E0]"
-        style={{ left: '80px', top: '100px', width: '819px', height: '152px' }}
-      >
-        Validating Design Through Real User Interaction
-      </h2>
+    <section className="relative w-full overflow-hidden bg-[#0B0B0B]">
+      {/* Subtle Gradient Backdrop */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1C1307]/70 via-[#0B0B0B] to-black pointer-events-none" />
 
-      {/* Step 01 - Title */}
-      <h3 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[20px] leading-[1.2em] text-[#EAE3E0]"
-        style={{ left: '560px', top: '348px', width: '800px', height: '24px' }}
-      >
-        01.   Prototype Before You Build
-      </h3>
-      
-      {/* Step 01 - Description */}
-      <p 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[20px] leading-[1.2em] text-white opacity-70"
-        style={{ left: '590px', top: '380px', width: '800px', height: '72px' }}
-      >
-        We craft interactive prototypes using Figma, Adobe XD, or InVision, allowing teams to experience and refine ideas before development.
-      </p>
+      {/* Content Container */}
+      <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-20 py-20 lg:py-32 gap-16 lg:gap-24">
+        
+        {/* Left Side - Image */}
+        <motion.div
+          {...fadeUp(0.1)}
+          className="relative w-full lg:w-[480px] xl:w-[520px] aspect-[7/10] bg-[#1C1307] rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(166,72,30,0.1)]"
+        >
+          <Image
+            src="/images/ui-prototype-bg.png"
+            alt="Prototype Preview"
+            fill
+            priority
+            className="object-cover object-top transition-transform duration-700 ease-out hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+        </motion.div>
 
-      {/* Step 02 - Title */}
-      <h3 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[20px] text-nowrap leading-[1.2em] text-[#EAE3E0]"
-        style={{ left: '560px', top: '476px', width: '800px', height: '24px' }}
-      >
-        02.  Test With Real Users
-      </h3>
-      
-      {/* Step 02 - Description */}
-      <p 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[20px] leading-[1.2em] text-white opacity-70"
-        style={{ left: '590px', top: '508px', width: '800px', height: '72px' }}
-      >
-        Usability tests reveal how people actually navigate your product — we watch, learn, and identify friction points that block engagement.
-      </p>
+        {/* Right Side - Text Content */}
+        <motion.div
+          {...fadeUp(0.3)}
+          className="flex flex-col justify-start w-full lg:max-w-[700px]"
+        >
+          {/* Headline */}
+          <h2 className="font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[#F0E9E6] text-[32px] sm:text-[44px] lg:text-[60px] xl:text-[64px] leading-[1.15] tracking-tight mb-12">
+            Validating Design Through Real User Interaction
+          </h2>
 
-      {/* Step 03 - Title */}
-      <h3 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[20px] leading-[1.2em] text-[#EAE3E0]"
-        style={{ left: '560px', top: '604px', width: '800px', height: '24px' }}
-      >
-        03.   Iterate With Data
-      </h3>
-      
-      {/* Step 03 - Description */}
-      <p 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[20px] leading-[1.2em] text-white opacity-70"
-        style={{ left: '590px', top: '636px', width: '800px', height: '72px' }}
-      >
-        Each round of testing drives evidence-based refinements, ensuring every screen feels intuitive and every flow performs better.
-      </p>
+          {/* Steps */}
+          <div className="space-y-10">
+            {steps.map((step, i) => (
+              <motion.div key={i} {...fadeUp(0.2 + i * 0.1)}>
+                <h3 className="font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-lg sm:text-xl text-[#F0E9E6] mb-1">
+                  {step.num}&nbsp;&nbsp;{step.title}
+                </h3>
+                <p className="font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-base sm:text-lg text-white/70 leading-relaxed max-w-[640px]">
+                  {step.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
 
-      {/* Step 04 - Title */}
-      <h3 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-semibold text-[20px] leading-[1.2em] text-[#EAE3E0]"
-        style={{ left: '560px', top: '732px', width: '800px', height: '24px' }}
-      >
-        04.   Optimize for Conversion
-      </h3>
-      
-      {/* Step 04 - Description */}
-      <p 
-        className="absolute font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[20px] leading-[1.2em] text-white opacity-70"
-        style={{ left: '590px', top: '764px', width: '800px', height: '96px' }}
-      >
-        We experiment with layouts, CTAs, and micro-interactions — applying proven principles like Hick&apos;s and Fitts&apos;s laws to drive measurable conversion gains.
-      </p>
-
-      {/* Frame 20 - Discover How Button */}
-      <button 
-        className="absolute flex items-center justify-center gap-2 px-5 py-4 rounded"
-        style={{ 
-          left: '590px', 
-          top: '876px',
-          background: 'rgba(25, 27, 32, 0.2)'
-        }}
-      >
-        <span className="font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-[20px] leading-[1.2em] text-white">
-          Discover How
-        </span>
-        {/* Vector - Arrow icon */}
-        <svg width="17.42" height="11.31" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 1L17 6L12 11M17 6H1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </button>
-
-      {/* Frame 247 - Background Image */}
-      <div 
-        className="absolute"
-        style={{ 
-          left: '0px', 
-          top: '309px', 
-          width: '504px', 
-          height: '715px', 
-          background: '#1C1307' 
-        }}
-      >
-        <Image
-          src="/images/ui-prototype-bg.png"
-          alt="Prototype Background"
-          width={504}
-          height={756}
-          className="object-cover"
-          style={{ left: '0px', top: '-20px', width: '504px', height: '756px' }}
-        />
+          {/* CTA Button */}
+          <motion.button
+            {...fadeUp(0.8)}
+            className="mt-12 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all duration-300 group w-fit"
+          >
+            <span className="font-['Neue_Haas_Grotesk_Display_Pro'] font-medium text-lg text-white">
+              Discover How
+            </span>
+            <svg
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              width="17.42"
+              height="11.31"
+              viewBox="0 0 18 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 1L17 6L12 11M17 6H1"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </motion.button>
+        </motion.div>
       </div>
-
-      {/* Line 41 - Divider Line */}
-      <div 
-        className="absolute w-full h-px bg-white opacity-30"
-        style={{ left: '0px', top: '309px', width: '1440px' }}
-      />
     </section>
   );
 };
